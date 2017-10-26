@@ -42,7 +42,9 @@ Given /^I am on welcome screen$/ do
 
   $driver.back
 
-  $driver.find_element(:xpath,'//android.widget.ImageButton').click
+  if $driver.find_element(:xpath,'//android.widget.ImageButton').displayed?
+    $driver.find_element(:xpath,'//android.widget.ImageButton').click
+  end
 
   if $driver.wait {$driver.find_element(:xpath,'//android.widget.TextView[contains(@text, "Meklēšanas filtri")]').displayed?}
   	$driver.find_element(:xpath,'//android.widget.TextView[contains(@text, "Meklēšanas filtri")]').click
