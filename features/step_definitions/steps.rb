@@ -24,13 +24,13 @@
 
 Given /^I am on create filter page$/ do
  @pages.page_intro.close_intro_if_visible
+ @pages.page_create_filter.visible?
 end
 
-Given /^I open Transports$/ do
- @pages.page_create_filter.open_catagory("Transports")
+Given /^I open on Transports category$/ do
+    @pages.page_create_filter.open_category("Transports")
 end
 
-Then /^I open sub cat Vieglie auto$/ do
- @pages.SubCatagoryPage.open_sub_catagory("Vieglie auto")
->>>>>>> 2017
+Given /^I open sub cat Vieglie auto/ do
+  @pages.page_sub_category.open_sub_category("Vieglie auto")
 end

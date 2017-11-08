@@ -14,13 +14,16 @@ class Element
   def click
     $driver.find_element(@value[:type], @value[:value]).click
   end
-  def click_by_text(textValue)
-    $driver.wait {$driver.find_element(:xpath, "//*[contains(@resource-id, \"main_row_background\")]/parent::*/*[contains(@text, \"#{textValue}\")]").displayed?}
-    $driver.find_element(:xpath, "//*[contains(@resource-id, \"main_row_background\")]/parent::*/*[contains(@text, \"#{textValue}\")]").click
-    #element = $driver.find_element(@value[:type], @value[:value])
-    #element.find_element(:xpath, "parent::*/*[contains(@text, \"#{textValue}\")]").click
-    #$driver.find_element(:xpath, "//*[contains(@resource-id, \"main_row_background\")]/parent::*/*[contains(@text, \"#{textValue}\")]").click
+
+  def click_by_text(text)
+    # element = $driver.find_element(@value[:type], @value[:value])
+    # print "//parent::*/*[contains(@text, #{text})]"
+    # //*[contains(@resource-id, 'main_row_text')]//parent::*/*[contains(@text, 'Transports')]
+    # print element.methods
+    # element.find_element(:id, "main_row_text").click
+    $driver.find_element(:xpath, "//*[contains(@text, '#{text}')]").click
   end
+
   def scroll_to_exact(text)
     $driver.scroll_to_exact(text)
   end
