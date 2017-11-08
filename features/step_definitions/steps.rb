@@ -22,6 +22,15 @@
 # https://www.relishapp.com/rspec/rspec-expectations/docs
 
 
-Given /^I am on welcome screen$/ do
+Given /^I am on create filter page$/ do
  @pages.page_intro.close_intro_if_visible
+end
+
+Given /^I open Transports$/ do
+ @pages.page_create_filter.open_catagory("Transports")
+end
+
+Then /^I open sub cat Vieglie auto$/ do
+ @pages.SubCatagoryPage.open_sub_catagory("Vieglie auto")
+>>>>>>> 2017
 end
