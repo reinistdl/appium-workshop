@@ -27,4 +27,16 @@ class Element
   def scroll_to_exact(text)
     $driver.scroll_to_exact(text)
   end
+
+  def input_from(parameter, from)
+    $driver.find_element(:xpath, "//*[contains(@text, \"#{parameter}\")]/parent::*//*[contains(@text, \"No\")]").send_keys(from)
+  end
+
+  def input_to(parameter,to)
+    $driver.find_element(:xpath, "//*[contains(@text, \"#{parameter}\")]/parent::*//*[contains(@text, \"Līdz\")]").send_keys(to)
+  end
+
+  def input_filter_name(random)
+    $driver.find_element(:xpath, '//*[contains(@text, "Meklēšanas filtra nosaukums")]').send_keys(random)
+  end
 end

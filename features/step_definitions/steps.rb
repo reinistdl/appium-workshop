@@ -23,14 +23,34 @@
 
 
 Given /^I am on create filter page$/ do
- @pages.page_intro.close_intro_if_visible
- @pages.page_create_filter.visible?
+	@pages.page_intro.close_intro_if_visible
+	@pages.page_create_filter.visible?
 end
 
 Given /^I open on Transports category$/ do
     @pages.page_create_filter.open_category("Transports")
 end
 
-Given /^I open sub cat Vieglie auto/ do
-  @pages.page_sub_category.open_sub_category("Vieglie auto")
+Given /^I open sub cat Vieglie auto$/ do
+	@pages.page_sub_category.open_sub_category("Vieglie auto")
+end
+
+Given /^I open car make Audi$/ do
+	@pages.car_make_page.select_car_make("Audi")
+end
+
+Given /^I open car model Audi A4$/ do
+	@pages.car_model_page("Audi").select_car_model("Audi A4")
+end
+
+Given /^I open option For Sale$/ do
+	@pages.ad_option_page("Darbība").select_ad_option("Pārdod")
+end
+
+Given /^I fill in form data$/ do
+	@pages.parameter_page.input_filter_name("Random for now")
+	@pages.parameter_page.input_values("CENA (EUR)","1000","2000")
+	@pages.parameter_page.input_values("GADS","1990","2017")
+	@pages.parameter_page.input_values("NOBRAUKUMS (TŪKST.)","10000","200000")
+	@pages.parameter_page.input_values("TILPUMS","2","6.4")
 end
