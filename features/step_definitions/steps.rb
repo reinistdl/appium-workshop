@@ -23,24 +23,54 @@
 
 
 Given /^I am on create filter page$/ do
- @pages.page_intro.close_intro_if_visible
- @pages.page_create_filter.visible?
+	@pages.page_intro.close_intro_if_visible
+	@pages.page_create_filter.visible?
 end
 
 Given /^I open sub cat (.*)$/ do |sub_cat|
-  @pages.page_sub_category.open_sub_category(sub_cat)
+	@pages.page_sub_category.open_sub_category(sub_cat)
 end
 
 Given /^I open on Transports category$/ do
-    @pages.page_create_filter.open_category("Transports")
+	@pages.page_create_filter.open_category("Transports")
 end
 
 Given /^I am on parameters page$/ do
-  @pages.page_paremeters.visible?
+	@pages.page_paremeters.visible?
 end
 
 Given /^I set filter parameters$/ do
-  @pages.page_paremeters.set_name("Test Name")
-  @pages.page_paremeters.set_parameter("GADS", "1999", "2002")
-  @pages.page_paremeters.save_filter
+	@pages.page_paremeters.set_name("Test Name")
+	@pages.page_paremeters.set_parameter("GADS", "1999", "2002")
+	@pages.page_paremeters.set_parameter("CENA (EUR)", "500","3000")
+	@pages.page_paremeters.save_filter
+end
+
+Given /^I am on additional filter page$/ do
+	@pages.page_additional_filters.decline_offer
+end
+
+Given /^I open side menu$/ do
+	@pages.page_create_filter.open_side_menu
+end
+
+Given /^I open (.*) from menu$/ do |item|
+	@pages.page_side_menu.select_item(item)
+end
+
+Given /^I am on Meklēšanas filtri page$/ do
+	@pages.page_saved_filters.visible?
+end
+
+Given /^I select saved filter (.*)$/ do |filter_name|
+	@pages.page_saved_filters.open_filter(filter_name)
+end
+
+Given /^I am on saved filter (.*) page$/ do |filter_name|
+	@pages.page_saved_filter_details(filter_name).visible?
+end
+
+Given /^I select delete for filter (.*)$/ do |filter_name|
+	@pages.page_saved_filter_details(filter_name).delete_filter
+	@pages.page_delete_filter.accept_deletion
 end

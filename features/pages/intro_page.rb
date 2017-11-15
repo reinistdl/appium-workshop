@@ -9,12 +9,12 @@ class IntroPage < BasePage
   end
 
   def close_intro_if_visible
-    self.alert_accept
+    #self.alert_accept
+    if @button_close_alert_ok.any?
+      self.alert_accept
     if @button_close_intro.any?
       @button_close_intro.click
     end
-    if @button_close_alert_ok.any?
-      self.alert_accept
     end
   end
 end

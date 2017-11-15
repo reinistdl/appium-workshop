@@ -27,7 +27,7 @@ class ParametersPage < BasePage
         sub_element =   element.find_element(@title_parameter_name.value[:type], @title_parameter_name.value[:value])
       
       if sub_element.text == name
-        print sub_element.text
+        #print sub_element.text
         element.find_element(@input_parameter_left.value[:type], @input_parameter_left.value[:value]).send_keys left_param
         element.find_element(@input_parameter_right.value[:type], @input_parameter_right.value[:value]).send_keys right_param
         break
