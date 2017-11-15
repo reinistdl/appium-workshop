@@ -1,4 +1,5 @@
 class Element
+  attr_accessor :value
   def initialize(type, value)
     @value = Hash[:type => type, :value => value]
   end
@@ -14,14 +15,13 @@ class Element
   def click
     $driver.find_element(@value[:type], @value[:value]).click
   end
-  def click_by_text(textValue)
-    $driver.wait {$driver.find_element(:xpath, "//*[contains(@resource-id, \"main_row_background\")]/parent::*/*[contains(@text, \"#{textValue}\")]").displayed?}
-    $driver.find_element(:xpath, "//*[contains(@resource-id, \"main_row_background\")]/parent::*/*[contains(@text, \"#{textValue}\")]").click
-    #element = $driver.find_element(@value[:type], @value[:value])
-    #element.find_element(:xpath, "parent::*/*[contains(@text, \"#{textValue}\")]").click
-    #$driver.find_element(:xpath, "//*[contains(@resource-id, \"main_row_background\")]/parent::*/*[contains(@text, \"#{textValue}\")]").click
+
+  def send_keys(keys)
+    $driver.find_element(@value[:type], @value[:value]).send_keys(keys)
   end
-  def scroll_to_exact(text)
-    $driver.scroll_to_exact(text)
+
+  def find_sub_element(element)
+    $driver.find_element(@value[:type], @value[:value]).find_element(element.value[:type], element.value[:value])
   end
+
 end
