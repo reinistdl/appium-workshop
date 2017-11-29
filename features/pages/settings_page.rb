@@ -1,18 +1,11 @@
-class CreateFilter < BasePage
+class SettingsPage < BasePage
   def initialize
-    @titile = Element.new(:xpath, '//android.widget.TextView[contains(@text, "Izveidot filtru")]')
-    @titles_catagory = Element.new(:id, 'main_row_text')
+    @title = Element.new(:xpath, '//android.widget.TextView[contains(@text, "Iestatījumi")]')
+    @settings_content = ElementGroup.new(:id, 'settings_holder')
   end
 
   def visible?
     @title.visible?
-    @titles_catagory.visible?
+    @settings_content.visible?
   end
-
-  def open_catagory(name)
-    @titles_catagory.click_by_text(name)
-  end
-
-
-
 end

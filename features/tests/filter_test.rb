@@ -5,6 +5,7 @@ class FilterTest
 
   def close_intro
     @pages.page_intro.close_intro_if_visible
+    @pages.page_create_filter.visible?
   end
 
   def open_filter_params

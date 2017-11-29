@@ -19,13 +19,13 @@ class Pages
     @page_paremeters
   end
 
-  def menu_page
-    @menu_page ||= MenuPage.new
-    @menu_page
+  def page_menu
+    @page_menu ||= MenuPage.new
+    @page_menu
   end
 
-  def settings_page
-    @settings_page ||= SettingsPage.new
-    @settings_page
+  def page_settings
+    @page_settings ||= SettingsPage.new
+    @page_settings
   end
 end

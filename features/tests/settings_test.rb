@@ -7,8 +7,12 @@ class SettingsTest
     @pages.page_intro.close_intro_if_visible
   end
 
-  def open_side_menu(value)
+  def access_settings_screen(value)
     @pages.page_create_filter.open_side_menu
-    @pages.menu_page.select_item(value)
+    @pages.page_menu.select_item(value)
+  end
+
+  def page_visible
+    @pages.page_settings.visible?
   end
 end

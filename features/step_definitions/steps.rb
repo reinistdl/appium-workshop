@@ -39,6 +39,7 @@ Given /^I submit empty filter$/ do
 end
 
 Given /^I navigate to settings page$/ do
-	@tests.settings_test.open_side_menu("Iestatījumi")
+	@tests.settings_test.access_settings_screen("Iestatījumi")
+	#@tests.settings_test.page_visible
 	sleep(10)
 end

@@ -11,4 +11,5 @@ class Tests
   	@settings_test ||= SettingsTest.new @pages
   	@settings_test
   end
+  
 end
