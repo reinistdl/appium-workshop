@@ -7,4 +7,8 @@ class Tests
     @filters_test ||= FilterTest.new @pages
     @filters_test
   end
+  def settings_test
+  	@settings_test ||= SettingsTest.new @pages
+  	@settings_test
+  end
 end

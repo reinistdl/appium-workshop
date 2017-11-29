@@ -18,4 +18,14 @@ class Pages
     @page_paremeters ||= ParametersPage.new
     @page_paremeters
   end
+
+  def menu_page
+    @menu_page ||= MenuPage.new
+    @menu_page
+  end
+
+  def settings_page
+    @settings_page ||= SettingsPage.new
+    @settings_page
+  end
 end

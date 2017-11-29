@@ -30,6 +30,15 @@ Given /^I open filter params$/ do
   @tests.filters_test.open_filter_params
 end
 
-Given /^I submit filter/ do
+Given /^I submit filter$/ do
   @tests.filters_test.submit_filter
+end
+
+Given /^I submit empty filter$/ do
+  @tests.filters_test.submit_empty_filter
+end
+
+Given /^I navigate to settings page$/ do
+	@tests.settings_test.open_side_menu("Iestatījumi")
+	sleep(10)
 end
