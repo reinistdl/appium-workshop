@@ -1,7 +1,6 @@
 class ParametersPage < BasePage
   def initialize
     @title = Element.new(:xpath, '//android.widget.TextView[contains(@text, "Parametri")]')
-    @button_apply = Element.new(:id, 'save_filter')
     @button_back = Element.new(:id, 'Navigate up')
     @input_name = Element.new(:id, 'param_filter_name')
     @frame_parameter = ElementGroup.new(:id, 'parameter_body_holder')
@@ -9,6 +8,9 @@ class ParametersPage < BasePage
     @frame_param_holder = ElementGroup.new(:id, 'param_text_holder')
     @input_parameter_left = Element.new(:id, 'left_param')
     @input_parameter_right = Element.new(:id, 'right_param')
+    @button_apply = Element.new(:id, 'save_filter')
+    @button_delete = Element.new(:id, 'delete_filter')
+    @pop_up_delete = Element.new(:xpath, "//android.widget.Button[contains(@text, 'DZĒST')]")
   end
 
   def visible?
@@ -27,7 +29,6 @@ class ParametersPage < BasePage
         sub_element =   element.find_element(@title_parameter_name.value[:type], @title_parameter_name.value[:value])
       
       if sub_element.text == param_hash['name']
-        print sub_element.text
         element.find_element(@input_parameter_left.value[:type], @input_parameter_left.value[:value]).send_keys param_hash['left']
         element.find_element(@input_parameter_right.value[:type], @input_parameter_right.value[:value]).send_keys param_hash['right']
         break
@@ -38,5 +39,10 @@ class ParametersPage < BasePage
 
   def save_filter
     @button_apply.click
+  end
+
+  def delete_filter
+    @button_delete.click
+    @pop_up_delete.click
   end
 end

@@ -18,4 +18,14 @@ class Pages
     @page_paremeters ||= ParametersPage.new
     @page_paremeters
   end
+
+  def page_menu
+    @page_menu ||= MenuPage.new
+    @page_menu
+  end
+
+  def page_saved_filters
+    @page_saved_filters ||= SavedFiltersList.new
+    @page_saved_filters
+  end
 end

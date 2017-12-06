@@ -26,10 +26,18 @@ Given /^I am on create filter page$/ do
   @tests.filters_test.close_intro
 end
 
-Given /^I open filter params$/ do
-  @tests.filters_test.open_filter_params
+Given /^I open (.*) filter params$/ do |exact|
+  @tests.filters_test.open_filter_params(exact)
 end
 
-Given /^I submit filter/ do
-  @tests.filters_test.submit_filter
+Given /^I submit (.*) filter$/ do |exact|
+	@tests.filters_test.submit_filter(exact)
+end
+
+Given /^I open saved filter page$/ do
+	@tests.filters_test.goto_saved_filter_page
+end
+
+Given /^I delete saved (.*) filter$/ do |exact|
+	@tests.filters_test.delete_saved_filter(exact)
 end
